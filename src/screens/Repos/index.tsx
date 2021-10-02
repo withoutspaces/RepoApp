@@ -3,7 +3,6 @@ import { View, ScrollView, Text } from 'react-native';
 import { styles } from './style'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import RepositoriesList from '../../Components/Repositories List';
-//import ProfileBox from '../../Components/ProfileBox';
 import IGithubRepo from '../../services/IGitHubRepos';
 
 
@@ -49,7 +48,6 @@ const Repos = () => {
             <ScrollView>
                 {
                     repositories.map((repo: IGithubRepo) => {
-                        let color = null 
                         return(
                             <RepositoriesList 
                                 key={repo.name}

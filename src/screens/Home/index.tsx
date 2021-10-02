@@ -34,10 +34,10 @@ const Home: React.FC = () => {
         navigation.navigate('Repos')
     }
     
-    async function storeUser() {
+    async function storeUser(repos:object) {
         try {
             await AsyncStorage.setItem("user", user)
-            await AsyncStorage.setItem("repos", JSON.stringify(repositories))
+            await AsyncStorage.setItem("repos", JSON.stringify(repos))
         
         } catch (error) {
             console.log(error)
@@ -50,7 +50,7 @@ const Home: React.FC = () => {
         .get(`${user}/repos`)
         .then((response) => {
             setRepositories(response.data)
-            storeUser()
+            storeUser(response.data)
             if(repositories !== null) {    //funciona? 
                 handleGoToReposScreen()
                 setError(false)
